@@ -1,0 +1,35 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+ENV/
+env/
+.venv/
+.python-version
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# macOS
+.DS_Store
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Test coverage reports
+htmlcov/
+.coverage
+.tox/
+.nox/
+.cache/

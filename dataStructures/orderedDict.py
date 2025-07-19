@@ -60,3 +60,6 @@ class LRUCache:
             self.cache.popitem(last=False)  # Remove least recently used
 
 
+
+
+

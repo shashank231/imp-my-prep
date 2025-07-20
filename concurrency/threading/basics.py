@@ -14,7 +14,7 @@
 # Global Variables	              ✅ Yes      	           Must protect with locks if writing
 # Heap Objects	                  ✅ Yes                    Shared unless isolated per thread
 # Function Locals	              ❌ No	                   Each thread has its own stack (its own local vars)
-# # Thread-local Storage	          ❌ No (by design)         Can be implemented using threading.local()
+# # Thread-local Storage	      ❌ No (by design)         Can be implemented using threading.local()
 
 
 # IMMUTABLE

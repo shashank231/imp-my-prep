@@ -19,17 +19,6 @@ class Solution:
         return helper(0, 0)
 
 
-
-
-
-
-
-
-
-
-
-
-
 class Solution:
 
     def canPartition(self, arr):

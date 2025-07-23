@@ -3,7 +3,18 @@
 
 # sem1 = threading.Semaphore(count)
 # sem1.acquire()
+    # semaphore are already thread safe
+    # can be called with and without lock(preferred)
+    # if called inside lock: thread will hold the lock while waiting 
 # sem1.release()
+
+# con1 = threading.condition(lock)
+# con1.wait()
+    # should be called inside with condition: (has internal lock)
+    # if called inside lock: thread will release the lock while waiting 
+# con1.notify()
+    # should be called inside with condition: (has internal lock)
+    # called inside lock(condition): thread will release the lock while waiting 
 
 # b1 = threading.Barrier(num_of_threads)
 #   is_leader = b1.wait() == False

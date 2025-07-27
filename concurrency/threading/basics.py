@@ -25,6 +25,19 @@
 # con1.wait()
     # should be called inside with condition: (has internal lock)
     # if called inside lock: thread will release the lock while waiting 
+    # Always use condn.wait() inside a while loop (due to spurious wakeups) or we can also use condn.wait_for()
+        # with condn:
+        #     while not ready:
+        #         condn.wait()
+        # with condn:
+        #     condn.wait_for(lambda: ready)
+        # ---------------------------------
+        # with condn:
+        #     while conter<5:
+        #         condn.wait()
+        # with condn:
+        #     condn.wait_for(lambda: counter>=5)
+
 # con1.notify()
     # should be called inside with condition: (has internal lock)
     # called inside lock(condition): thread will release the lock while waiting 
@@ -83,3 +96,6 @@
 # But:
 # The lock stays acquired by the original thread, so no other thread can enter the critical section until the original thread releases the lock.
 # Even if another thread starts running, when it tries to lock.acquire(), it will block and wait.
+
+
+    

@@ -31,7 +31,7 @@ def fun2(arr, sm):
     def helper(target, ans):
         nonlocal ways
         if target == sm:
-            print(ans)
+            print(ans) 
             ways += 1
             return
         if target > sm:

@@ -97,5 +97,67 @@
 # The lock stays acquired by the original thread, so no other thread can enter the critical section until the original thread releases the lock.
 # Even if another thread starts running, when it tries to lock.acquire(), it will block and wait.
 
+#  So how do you really benefit from immutability?
+# ------------------------------------------------
+# You do this:
+    # Keep shared immutable data as read-only (never rebind it globally).
+    # If a thread needs a modified version, it creates its own local copy.
+        # def thread_fn():
+        #    local_value = shared_value + 1  # this does NOT change shared_value
 
-    
+# Summary
+# --------
+# Case	                                             Safe?	   Why
+# All threads just read shared_value = 42    	    ✅ Yes	Immutable object is safe to read
+# One thread rebinds shared_value = 43 (global)  	❌ No	All threads see updated binding
+# One thread copies local_value = shared_value + 1	✅ Yes	Local copy, no shared mutation
+
+
+
+
+# threading.local()
+# -----------------
+    # It creates a "thread-local storage" object.
+    # Each thread can store attributes on it, and they are isolated per thread.
+
+import threading
+import uuid
+import random
+import time
+# Create thread-local storage
+thread_local_data = threading.local()
+
+def initialize_thread_data():
+    thread_local_data.user_id = random.randint(1000, 9999)
+    thread_local_data.request_id = str(uuid.uuid4())
+    thread_local_data.session_token = f"TOKEN-{random.randint(100000, 999999)}"
+
+def process():
+    initialize_thread_data()
+    time.sleep(random.random())
+    print(f"[{threading.current_thread().name}] user_id = {thread_local_data.user_id}, "
+          f"request_id = {thread_local_data.request_id}, "
+          f"session_token = {thread_local_data.session_token}")
+
+threads = []
+for _ in range(3):
+    t = threading.Thread(target=process)
+    threads.append(t)
+    t.start()
+for t in threads:
+    t.join()
+# o/p
+    # [Thread-0] user_id = 4098, request_id = 04efbb7b-ae1f-4b3d-a420-ccf99a3d1e0e, session_token = TOKEN-568921
+    # [Thread-2] user_id = 1203, request_id = 5fd15e13-cddb-4f32-83ed-9fa3c6de83e7, session_token = TOKEN-194405
+    # [Thread-1] user_id = 8881, request_id = af46eb0f-499f-47aa-aabb-1dc59f070d97, session_token = TOKEN-986421
+
+# Key Notes
+    # Think of my_data.value as a per-thread dictionary.
+    # Internally, Python stores separate values for each thread behind the scenes.
+    # Other threads cannot access the data set by a different thread.
+
+# Use Cases
+    # Storing thread-specific configs, caches, or database connections.
+    # Avoiding conflicts when threads are working with similar data structures.
+    # When using 3rd-party code that isn't thread-safe but can work fine if isolated.
+

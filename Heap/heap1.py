@@ -5,6 +5,7 @@
 
 # 📐 Structure
 # A Min-Heap is typically represented as an array to save space and allow fast access:
+# if heap root value at index 0
 # For any element at index i:
 # Left child: at index 2*i + 1
 # Right child: at index 2*i + 2

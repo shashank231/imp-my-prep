@@ -25,21 +25,3 @@ def top_k_frequent_elements(arr, k):
     print("Top", k, "frequent elements:")
     for freq, key in result:
         print(f"Element: {key}, Frequency: {freq}")
-
-
-def connectRopes(arr):
-    heapq.heapify(arr)
-    minSum = 0
-
-    while (len(arr) > 2):
-        a = heapq.heappop(arr)
-        b = heapq.heappop(arr)
-        print(a, b)
-        minSum += (a+b)
-        heapq.heappush(arr, (a+b))
-    
-    print(minSum + sum(arr))
-    
-
-ar1 = [4, 3, 2, 6]
-connectRopes(ar1)

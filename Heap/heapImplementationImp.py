@@ -79,3 +79,4 @@ if __name__ == "__main__":
     max_val = h.delete()
     print("Deleted max value:", max_val)
     print("Heap after deletion:", h.heap)
+

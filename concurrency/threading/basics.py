@@ -1,10 +1,11 @@
+
 # threading.Thread(target=worker, args=(i,), daemon=True)
 # threading.Lock()
 # ---------------
 # Important thing to understand here is, difference between pausing and  blocking
 # When a thread is holding a lock,
     # it can also pass control to some other thread, lets say inside a lock you called 
-    # event.wait(), now the control goes to thread 2, but when will be blocked untill that event 
+    # event.wait(), now the control goes to thread 2, but then thread1 will be blocked untill that event 
     # is set, and if some other thread is using same lock, that thread won't be able to acquire 
     # lock as that lock is already acquired by thread1
     # and thread1 will kept being locked only control will go to some other thread

@@ -1,38 +1,6 @@
 from collections import deque
 
 
-# https://www.geeksforgeeks.org/problems/first-negative-integer-in-every-window-of-size-k3345/1
-class Solution:
-    
-    def firstNegInt(self, arr, k):
-        dq = deque()
-        result = []
-
-        for i in range(k):
-            if arr[i] < 0:
-                dq.append(i)
-        if dq:
-            result.append(arr[dq[0]])
-        else:
-            result.append(0)        
-
-
-        for end in range(k, len(arr)):
-            while dq and dq[0] < end-k+1:
-                dq.popleft()
-            if arr[end] < 0:
-                dq.append(end)
-            if dq:
-                result.append(arr[dq[0]])
-            else:
-                result.append(0)
-        
-        return result
-
-
-
-
-
 class Solution:
 
     def  maxSlidingWindow(self, arr, k):
@@ -64,4 +32,56 @@ class Solution:
         
         return result
 
-        
+
+# https://www.geeksforgeeks.org/problems/first-negative-integer-in-every-window-of-size-k3345/1
+class Solution:
+    
+    def firstNegInt(self, arr, k):
+        queue = deque([])
+        answer = list()
+
+        for i in range(k):
+            if arr[i] < 0:
+                queue.append(i)
+        if queue:
+            answer.append(arr[queue[0]])
+        else:
+            answer.append(0)
+
+
+        for end in range(k, len(arr)):
+            while queue and queue[0] < end-k+1:
+                queue.popleft()
+            if arr[end] < 0:
+                queue.append(end)
+            if queue:
+                answer.append(arr[queue[0]])
+            else:
+                answer.append(0)
+
+        return answer
+
+
+# https://www.geeksforgeeks.org/problems/first-non-repeating-character-in-a-stream1216/1
+class Solution:
+    def FirstNonRepeating(self, s):
+        checkDict = dict()
+        answer = ""
+        dq = deque()
+
+        for ch in s:
+            checkDict[ch] = checkDict.get(ch, 0) + 1
+            dq.append(ch)
+
+            # remove repeating chars from front
+            while dq and checkDict[dq[0]] > 1:
+                dq.popleft()
+
+            if dq:
+                answer += dq[0]
+            else:
+                answer += "#"
+
+        return answer
+
+

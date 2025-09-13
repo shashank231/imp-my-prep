@@ -104,8 +104,7 @@ def has_cycle_undirected(graph):
                 if neighbor != parent:
                     return True  # ✅ Cycle found
             else:
-                if dfs(neighbor, node):
-                    return True
+                return dfs(neighbor, node)
         return False
 
     for node in graph:

@@ -1,18 +1,20 @@
 
 max_len = 0
 
-def lcs_sub(s1, s2, l1, l2, count):
-    if l1 < 0 or l2 < 0:
-        return count
+def lcs_sub(s1, s2, i, j, curr_len):
+    if i < 0 or j < 0:
+        return curr_len
 
-    if s1[l1] == s2[l2]:
-        count = lcs_sub(s1, s2, l1 - 1, l2 - 1, count + 1)
-    
+    best = curr_len
+    if s1[i] == s2[j]:
+        best = lcs_sub(s1, s2, i - 1, j - 1, curr_len + 1)
+
     return max(
-        count,
-        lcs_sub(s1, s2, l1 - 1, l2, 0),
-        lcs_sub(s1, s2, l1, l2 - 1, 0)
+        best,
+        lcs_sub(s1, s2, i - 1, j, 0),
+        lcs_sub(s1, s2, i, j - 1, 0)
     )
+
 
 def mainPrintLcsSub(s1, s2):
     prtAns = ""

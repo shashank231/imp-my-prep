@@ -72,20 +72,15 @@ class Solution:
         largestOnRIght = self.largetElementOnRight(arr)
         maxa = 0
         l1 = len(arr)
-        # ar1 = []
     
         for i in range(l1):
             largestOnRightEle = largestOnRIght[i]
             if largestOnRightEle == -1:
-                # ar1.append(0)
                 pass
             else:
                 p1 = largestOnRightEle - arr[i]
-                # ar1.append(p1)
                 maxa = max(maxa, p1)
 
-        # print(maxa)
-        # print(ar1)
         return maxa
         
         

@@ -120,3 +120,7 @@ class Solution:
         arr = sorted(arr1, key=lambda x: x[0])
         ans = self.main(arr)
         return ans
+
+
+
+MERGE_INTERVALS.py

@@ -20,9 +20,13 @@ print(maxProfit([7,1,5,3,6,4]))  # Output: 5
 
 # Time: O(n)
 # Space: O(1)
-
 # Intuition:
 # Track the lowest price so far, and compute the profit if you sold today. Update the max profit whenever it improves.
+
+
+
+
+
 
 # Case 2: Multiple Transactions Allowed (Leetcode #122)
 # Buy low, sell high repeatedly (greedy approach).
@@ -37,11 +41,16 @@ def maxProfit(prices):
 # Example
 print(maxProfit([7,1,5,3,6,4]))  # Output: 7 (buy 1->sell 5, buy 3->sell 6)
 
-
 # Time: O(n)
 # Space: O(1)
 
 
+
+
+
+
+
+# My approaches
 
 class Solution:
     
@@ -67,7 +76,6 @@ class Solution:
         largestOnRight.reverse()
         return largestOnRight
 
-
     def maximumProfit(self, arr):
         largestOnRIght = self.largetElementOnRight(arr)
         maxa = 0
@@ -82,9 +90,8 @@ class Solution:
                 maxa = max(maxa, p1)
 
         return maxa
-        
-        
 
+        
 class Solution:
 
     def findMinimas(self, arr):
@@ -161,7 +168,7 @@ class Solution:
                 if combined[i]=="mi":
                     combined[i] = 0
                 break
-    
+
         prices = []
         for i in range(lenArr):
             if combined[i] != 0:

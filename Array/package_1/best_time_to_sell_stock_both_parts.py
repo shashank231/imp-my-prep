@@ -17,6 +17,30 @@ def maxProfit(prices):
 # Example
 print(maxProfit([7,1,5,3,6,4]))  # Output: 5
 
+# OR
+def maxProfit(prices):
+    len1 = len(prices)
+    def minSoFar(lst1):
+        if len1 == 1:
+            return lst1
+        ans = []
+        min_till_now = lst1[0]
+        ans.append(lst1[0])
+        for i in range(1, len1):
+            curr_ele = lst1[i]
+            if curr_ele < min_till_now:
+                min_till_now = curr_ele
+            ans.append(min_till_now)
+        return ans 
+    
+    minSoFarArr = minSoFar(prices)
+    maxProfit = 0
+    for i in range(len1):
+        profit = prices[i] - minSoFarArr[i]
+        if profit > maxProfit:
+            maxProfit = profit
+    return maxProfit
+
 
 # Time: O(n)
 # Space: O(1)
@@ -44,7 +68,8 @@ print(maxProfit([7,1,5,3,6,4]))  # Output: 7 (buy 1->sell 5, buy 3->sell 6)
 # Time: O(n)
 # Space: O(1)
 
-
+# This algorithm is essentially "decomposing" the profit. 
+# It adds up every single "uphill" segment of the price chart, no matter how small.
 
 
 

@@ -1,0 +1,14 @@
+2025-12-24T18:38:00Z|user123|login|success
+2025-12-24T18:39:15Z|user456|login|success
+2025-12-24T18:40:22Z|user123|logout|success
+2025-12-24T18:41:10Z|user789|login|failure
+invalid line here
+2025-12-24T18:42:05Z|user123|purchase|success
+2025-12-24T18:43:30Z|user456|purchase|success
+2025-12-24T18:44:12Z|user999|login|success
+2025-12-24T18:45:01Z|user123|login|success
+too few fields|bad
+2025-12-24T18:46:20Z|user789|logout|success
+2025-12-24T18:47:55Z|user123|purchase|success
+empty line test
+2025-12-24T18:49:10Z|user456|login|success

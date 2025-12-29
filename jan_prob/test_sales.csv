@@ -1,0 +1,11 @@
+date,user_id,action,amount
+2025-12-27T10:30:00Z,user123,login,0
+2025-12-27T10:31:15Z,user456,purchase,25.50
+2025-12-27T10:32:00Z,user123,view,0
+2025-12-27T10:33:45Z,user789,login,0
+2025-12-27T10:34:20Z,user123,purchase,15.75
+2025-12-27T10:35:00Z,user456,logout,0
+invalid line here,
+2025-12-27T10:36:10Z,user999,purchase,99.99
+2025-12-27T10:37:25Z,user123,login,0
+2025-12-27T10:38:40Z,user456,purchase,12.00

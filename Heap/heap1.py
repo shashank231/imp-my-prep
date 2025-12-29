@@ -35,3 +35,10 @@ min_elem = heapq.heappop(arr)  # Remove the smallest element
 print("Popped:", min_elem)     # Output: 1
 print("Heap Now:", arr)        # Output: [2, 3, 8, 5]
 
+heap = [10, 20, 15, 30, 40]
+heapq.heapify(heap)
+# 1. Remove the value
+heap.remove(15) 
+# 2. Re-heapify to fix the structure
+heapq.heapify(heap) 
+

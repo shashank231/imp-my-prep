@@ -1,0 +1,7 @@
+2025-12-30T10:15:23Z user123 login success
+2025-12-30T10:15:24Z user456 query db1 slow
+2025-12-30T10:15:25Z user123 logout ok
+invalid line here
+2025-12-30T10:15:26Z user789 sync metadata ok
+2025-12-30T10:15:27Z user123 query db2 fast
+2025-12-30T10:15:28Z user456 error auth fail

@@ -18,7 +18,7 @@ def fun11(arr, summ):
 
         # helper(idx, newCurrSum, newAns)   # Repetion aloud order doesn't matter
         # helper(0, newCurrSum, newAns)     # Repetion aloud order matter         1️⃣ take element → repetition allowed → restart at 0
-        helper(idx+1, newCurrSum, newAns) # No Repetition No Order
+        helper(idx+1, newCurrSum, newAns)   # No Repetition No Order
 
         helper(idx + 1, currSum, ans)
 

@@ -138,3 +138,5 @@ heap.remove(15)
 # 2. Re-heapify to fix the structure
 heapq.heapify(heap) 
 
+# we need to call heap.heapify() again only after calling heap.remove
+# no need after heappush() or heappop() as they will mantain the heap property 
